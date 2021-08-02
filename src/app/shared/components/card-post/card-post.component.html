@@ -1,0 +1,21 @@
+<div
+  class="card mx-auto card-post"
+  style="width: 27rem;"
+  (click)="this.cardClick()"
+>
+  <div class="card-body" *ngIf="post !== undefined">
+    <h5 class="card-title"
+        *ngIf="post.name !== undefined"
+    >
+      {{post.name}}
+    </h5>
+    <h6 class="card-subtitle mb-2 text-muted"
+    >
+      Catégorié: {{categoryName}}
+    </h6>
+    <p class="card-text"
+       *ngIf="post.message !== undefined">
+       {{post.message}}
+    </p>
+  </div>
+</div>

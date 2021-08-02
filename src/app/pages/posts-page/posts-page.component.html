@@ -1,0 +1,21 @@
+<app-menu
+  [menuInitializer]="categoriesList"
+  [sortable]="true"
+  (sortEvent)="sortByDate($event)"
+  (menuClickEvent)="navigateToCategory($event)"
+>
+</app-menu>
+<div class="cards-container d-flex align-content-md-start justify-content-center flex-wrap mt-6">
+  <div
+    class="mt=3 mb-3 ml-3 mr-3 float-left"
+    *ngFor="let post of this.posts"
+  >
+    <app-card-post
+      [post]="post"
+      (clickPostCard)="navigateToPost($event)"
+    >
+    </app-card-post>
+  </div>
+</div>
+
+

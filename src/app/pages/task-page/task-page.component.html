@@ -1,0 +1,15 @@
+<app-menu
+  [menuInitializer]="categories"
+  (menuClickEvent)="navigateToCategory($event)"
+>
+</app-menu>
+<div class="pdf-container">
+  <pdf-viewer
+    class="pdf"
+    [src]="pdfSrc"
+    [render-text]="true"
+    style="display: block;"
+  >
+
+  </pdf-viewer>
+</div>
