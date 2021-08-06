@@ -1,0 +1,35 @@
+<div
+  class="card"
+  *ngIf="card === undefined"
+>
+  <app-loader></app-loader>
+</div>
+<div
+  class="card"
+  *ngIf="card !== undefined"
+>
+  <img src="{{card.imgUrl}}" class="card-img-top img-fluid card-img" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{card.name}}</h5>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Price: {{card.price}} SEK</li>
+    </ul>
+    <div class="tags container">
+      <app-pill
+        *ngFor="let tag of card.tags"
+        [pillContent]="tag.name"
+        (click)="clickOnPillTag()"
+      >
+      </app-pill>
+    </div>
+  </div>
+  <div class="card-footer">
+    <button
+      type="button"
+      class="btn btn-primary btn-sm"
+      (click)="clickOnVideoButton(this.card.videoUrl)"
+    >
+      Video
+    </button>
+  </div>
+</div>
