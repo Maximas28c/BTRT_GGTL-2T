@@ -1,1 +1,13 @@
 <app-menu></app-menu>
+<div *ngIf="artistsList !== undefined">
+  <div class="card-group artists-cards d-flex justify-content-center mx-auto">
+    <app-card
+      *ngFor="let artistCard of artistsCards"
+      [card]="artistCard"
+    >
+    </app-card>
+  </div>
+</div>
+<div *ngIf="artistsList === undefined">
+  <app-loader></app-loader>
+</div>
