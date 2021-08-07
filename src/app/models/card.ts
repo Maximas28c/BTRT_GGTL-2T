@@ -7,6 +7,6 @@ export class Card {
   text?: string
   tags!: Tag[]
   price?: number
-  name?: string
+  name!: string
   id!: number
 }

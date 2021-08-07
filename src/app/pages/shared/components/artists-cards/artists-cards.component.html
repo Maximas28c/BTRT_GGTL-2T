@@ -1,0 +1,9 @@
+
+  <div class="card-group artists-cards d-flex justify-content-center mx-auto">
+    <app-card
+      *ngFor="let artistCard of artistsCardsInput"
+      [card]="artistCard"
+      (click)="clickOnArtistCard(artistCard)"
+    >
+    </app-card>
+  </div>

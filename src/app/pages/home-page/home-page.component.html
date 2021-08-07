@@ -1,21 +1,40 @@
 <app-menu
-  [menuInitializer]=""
+  *ngIf="!isSearch"
+  (menuClickEvent)="toggleSearch()"
 >
 </app-menu>
-<app-search-bar
-  [placeHolderValue]="'tagy'"
-  class="d-flex justify-content-center w-100"
+<div
+  *ngIf="!isSingle"
 >
-</app-search-bar>
-<div *ngIf="artistsList !== undefined">
-  <div class="card-group artists-cards d-flex justify-content-center mx-auto">
-    <app-card
-      *ngFor="let artistCard of artistsCards"
-      [card]="artistCard"
+  <app-search-bar
+    *ngIf="isSearch"
+    (closeSearchBarEvent)="toggleSearch()"
+    (inputValueEvent)="getFilteredListOfArtistsCard($event)"
+    (changeSortDirectionEvent)="getSortedListOfArtistsCards($event)"
+    [placeHolderValue]="'Name or tag'"
+    class="d-flex justify-content-center w-100"
+  >
+  </app-search-bar>
+
+  <div
+    *ngIf="artistsList !== undefined"
+  >
+    <app-artists-cards
+      [artistsCardsInput]="artistsCards"
+      (clickOnArtistCardEvent)="toggleIsSingle()"
     >
-    </app-card>
+    </app-artists-cards>
+  </div>
+  <div *ngIf="artistsList === undefined">
+    <app-loader></app-loader>
   </div>
 </div>
-<div *ngIf="artistsList === undefined">
-  <app-loader></app-loader>
+<div
+  *ngIf="isSingle"
+>
+  <app-artist-card
+    (closeSingleArtistCardEvent)="toggleIsSingle()"
+  >
+  </app-artist-card>
 </div>
+

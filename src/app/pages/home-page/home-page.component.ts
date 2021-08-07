@@ -13,6 +13,10 @@ export class HomePageComponent implements OnInit {
 
   public artistsList!: Artist[]
   public artistsCards: Card[] = []
+  public initialArtistsCards: Card[] = []
+
+  public isSingle:boolean = false
+  public isSearch:boolean = false
 
   constructor(
     private router: Router,
@@ -44,11 +48,27 @@ export class HomePageComponent implements OnInit {
         )
       }
     )
+    this.initialArtistsCards = this.artistsCards
   }
 
-  getFilteredListOfArtistsCard(filter:any){
+  getFilteredListOfArtistsCard(filter:string){
+    this.artistsCards = this.artistsCards.filter(card=>
+      card.name.toLowerCase().includes(filter.toLowerCase())
+    )
+  }
 
+  getSortedListOfArtistsCards(isAsc:boolean){
+    if(!isAsc){
+      this.artistsCards.sort((a,b)=>a.name.localeCompare(b.name))
+    } else {
+      this.artistsCards.sort((a,b)=>b.name.localeCompare(a.name))
+    }
+  }
 
-
+  toggleSearch(){
+    this.isSearch = !this.isSearch
+  }
+  toggleIsSingle(){
+    this.isSingle = !this.isSingle
   }
 }

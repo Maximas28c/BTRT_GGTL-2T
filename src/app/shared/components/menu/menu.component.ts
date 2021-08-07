@@ -1,5 +1,6 @@
 import {Component, OnInit, Output, Input, EventEmitter} from '@angular/core';
 import {Router} from "@angular/router";
+import {faSearch} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-menu',
@@ -8,29 +9,19 @@ import {Router} from "@angular/router";
 })
 export class MenuComponent implements OnInit {
 
-  @Input() menuInitializer: any
-  @Input() sortable!: boolean
-  @Output() menuClickEvent = new EventEmitter<number>()
-  @Output() sortEvent = new EventEmitter<boolean>()
+  @Output() menuClickEvent = new EventEmitter<any>()
 
-  public isAsc!: boolean
-  public sortMsg!: string
-
+  public search = faSearch
   constructor(
     private router:Router
   ) { }
 
   ngOnInit(): void {
-    this.sortMsg = 'none'
-    if (this.sortable){
-      this.isAsc = true
-    } else {
-      this.isAsc = false
-    }
+
   }
 
-  clickOnMenuItem(itemId:number){
-    this.menuClickEvent.emit(itemId)
+  clickOnMenuItem(){
+    this.menuClickEvent.emit()
   }
   navigateToHome(){
     this.router.navigate(['/home'])
@@ -38,16 +29,5 @@ export class MenuComponent implements OnInit {
   navigateToTaskPage(){
     this.router.navigate(['/task'])
   }
-  toggleSortDir(){
-    this.isAsc = !this.isAsc
-    if (this.isAsc){
-      this.sortMsg = 'ASC'
-    } else {
-      this.sortMsg = 'DESC'
-    }
-  }
-  triggerSort(){
-    this.toggleSortDir()
-    this.sortEvent.emit(this.isAsc)
-  }
+
 }

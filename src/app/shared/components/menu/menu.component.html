@@ -32,17 +32,16 @@
 
       </div>
       <div class="btn-group">
-        <button type="button" class="btn btn-primary menu">Categories</button>
-        <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
-          <button class="btn btn-primary dropdown-toggle-split menu" ngbDropdownToggle></button>
-          <div class="dropdown-menu" ngbDropdownMenu>
-            <button
-              ngbDropdownItem
-            >
-              menuButtOn
-            </button>
-          </div>
-        </div>
+        <button
+          type="button"
+          class="btn btn-outline menu"
+          (click)="clickOnMenuItem()"
+        >
+          <fa-icon
+            [icon]="search"
+          >
+          </fa-icon>
+        </button>
       </div>
     </header>
   </div>

@@ -1,0 +1,21 @@
+<div class="float-left">
+  <button
+    class="btn btn-outline-danger ml-5"
+    (click)="closeSingleArtistCard()"
+  >
+    <fa-icon
+      [icon]="close"
+    >
+    </fa-icon>
+  </button>
+</div>
+<div
+  class="d-flex justify-content-center"
+>
+
+  <app-card
+    [card]="artistCard"
+  >
+
+  </app-card>
+</div>
