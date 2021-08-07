@@ -1,4 +1,12 @@
-<app-menu></app-menu>
+<app-menu
+  [menuInitializer]=""
+>
+</app-menu>
+<app-search-bar
+  [placeHolderValue]="'tagy'"
+  class="d-flex justify-content-center w-100"
+>
+</app-search-bar>
 <div *ngIf="artistsList !== undefined">
   <div class="card-group artists-cards d-flex justify-content-center mx-auto">
     <app-card

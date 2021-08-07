@@ -1,0 +1,46 @@
+<div class="bar-wrapper d-flex justify-content-center mx-auto">
+    <div class="container-fluid d-grid gap-3 align-items-center bar-container" style="grid-template-columns: 1fr 2fr;">
+      <div class="d-flex align-items-center bar">
+        <form class="me-3 bar-input align-self-start mx-3 form-floating">
+          <input
+            type="search"
+            class="form-control bar-input"
+            [ngClass]="isValid?'is-valid':'is-invalid'"
+            placeholder="{{placeHolderValue}}"
+            aria-label="Search"
+            id="searchInput"
+            [(ngModel)]="inputValue"
+            [ngModelOptions]="{standalone: true}"
+            (keyup)="emitFilterValue()"
+          >
+        </form>
+        <button
+          type="button"
+          class="btn btn-outline-primary btn-sm m-1"
+          (click)="changeSortDirection()"
+        >
+          <fa-icon
+            [icon]="sortUp"
+            *ngIf="isAscending"
+          >
+          </fa-icon>
+          <fa-icon
+            [icon]="sortDown"
+            *ngIf="!isAscending"
+          >
+          </fa-icon>
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-danger btn-sm m-1"
+          (click)="closeSearchBar()"
+        >
+          <fa-icon
+           [icon]="close"
+          >
+          </fa-icon>
+        </button>
+
+      </div>
+    </div>
+</div>

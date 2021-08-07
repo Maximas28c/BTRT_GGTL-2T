@@ -10,6 +10,9 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { PillComponent } from './components/pill/pill.component';
 import { InputComponent } from './components/input/input.component';
 import { TypeaheadComponent } from './components/typeahead/typeahead.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 
 
@@ -20,18 +23,23 @@ import { TypeaheadComponent } from './components/typeahead/typeahead.component';
     LoaderComponent,
     PillComponent,
     InputComponent,
-    TypeaheadComponent
+    TypeaheadComponent,
+    SearchBarComponent
   ],
-    exports: [
-        MenuComponent,
-        LoaderComponent,
-        CardComponent,
-    ],
+  exports: [
+    MenuComponent,
+    LoaderComponent,
+    CardComponent,
+    SearchBarComponent,
+  ],
   imports: [
     CommonModule,
     NgbModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    FontAwesomeModule
   ]
 })
 export class SharedModule { }

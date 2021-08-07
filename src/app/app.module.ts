@@ -8,6 +8,7 @@ import {SharedModule} from "./shared/shared.module";
 import {PagesModule} from "./pages/pages.module";
 import { RouterModule, Routes } from '@angular/router';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     SharedModule,
     PagesModule,
     HttpClientModule,
-    PdfViewerModule
+    PdfViewerModule,
+    FontAwesomeModule
   ],
   providers: [AppRoutingModule],
   bootstrap: [AppComponent]
